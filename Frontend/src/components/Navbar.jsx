@@ -45,12 +45,14 @@ const Navbar = () => {
           >
             View Equipment
           </Link>
-          <Link
-            to="/book"
-            className="hover:text-green-200 transition duration-300"
-          >
-            Book Equipment
-          </Link>
+          {user?.role === "farmer" && (
+            <Link
+              to="/book"
+              className="hover:text-green-200 transition duration-300"
+            >
+              Book Equipment
+            </Link>
+          )}
           {user?.role === "admin" && (
             <Link
               to="/admin"
@@ -81,7 +83,7 @@ const Navbar = () => {
                 Login
               </Link>
               <Link
-                to="/register"
+                to="/signup"
                 className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-800 transition duration-300"
               >
                 Register
