@@ -17,6 +17,8 @@ const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("equipment");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [editingId, setEditingId] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   const token = getToken();
   const user = getLoggedInUser();
@@ -55,6 +57,16 @@ const AdminPanel = () => {
     }
   };
 
+  const resetForm = () => {
+    setName("");
+    setPrice("");
+    setCategory("");
+    setDescription("");
+    setImageUrl("");
+    setEditingId(null);
+    setIsEditing(false);
+  };
+
   const handleAddEquipment = async () => {
     if (!name || !price || !category) {
       setError(
@@ -78,25 +90,60 @@ const AdminPanel = () => {
         }
       );
 
-      setName("");
-      setPrice("");
-      setCategory("");
-      setDescription("");
-      setImageUrl("");
+      resetForm();
       setError("");
       fetchData();
-
-      // Show success message
       setSuccessMessage("Equipment added successfully!");
-
-      // Hide the message after 2 seconds
-      setTimeout(() => {
-        setSuccessMessage("");
-      }, 2000);
+      setTimeout(() => setSuccessMessage(""), 2000);
     } catch (err) {
       console.error("Error adding equipment", err);
       setError(err.response?.data?.message || "Error adding equipment");
     }
+  };
+
+  const handleUpdateEquipment = async () => {
+    if (!name || !price || !category) {
+      setError(
+        "Please fill in all required fields (Name, Category, and Price)"
+      );
+      return;
+    }
+
+    try {
+      await axios.put(
+        `http://localhost:5000/api/equipment/${editingId}`,
+        {
+          name,
+          category,
+          pricePerHour: price,
+          description,
+          imageUrl,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      resetForm();
+      setError("");
+      fetchData();
+      setSuccessMessage("Equipment updated successfully!");
+      setTimeout(() => setSuccessMessage(""), 2000);
+    } catch (err) {
+      console.error("Error updating equipment", err);
+      setError(err.response?.data?.message || "Error updating equipment");
+    }
+  };
+
+  const handleEditEquipment = (equipment) => {
+    setName(equipment.name);
+    setCategory(equipment.category);
+    setPrice(equipment.pricePerHour);
+    setDescription(equipment.description);
+    setImageUrl(equipment.imageUrl);
+    setEditingId(equipment._id);
+    setIsEditing(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleDeleteEquipment = async (id) => {
@@ -108,13 +155,14 @@ const AdminPanel = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchData();
+      setSuccessMessage("Equipment deleted successfully!");
+      setTimeout(() => setSuccessMessage(""), 2000);
     } catch (err) {
       console.error("Error deleting equipment", err);
       setError("Error deleting equipment");
     }
   };
 
-  // if user is not a admin
   if (!user || user.role !== "admin") {
     return (
       <div className="flex flex-col min-h-screen">
@@ -139,7 +187,6 @@ const AdminPanel = () => {
     );
   }
 
-  // loading bar
   if (loading) {
     return (
       <div className="flex flex-col min-h-screen">
@@ -174,11 +221,20 @@ const AdminPanel = () => {
               </div>
             )}
 
+            {successMessage && (
+              <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded">
+                <p>{successMessage}</p>
+              </div>
+            )}
+
             {/* Navigation Tabs */}
             <div className="border-b border-gray-200 mb-6">
               <nav className="-mb-px flex space-x-8">
                 <button
-                  onClick={() => setActiveTab("equipment")}
+                  onClick={() => {
+                    setActiveTab("equipment");
+                    resetForm();
+                  }}
                   className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${
                     activeTab === "equipment"
                       ? "border-green-500 text-green-600"
@@ -213,18 +269,20 @@ const AdminPanel = () => {
             {/* Equipment Management Tab */}
             {activeTab === "equipment" && (
               <div className="bg-white shadow rounded-lg p-6 mb-8">
-                <h2 className="text-xl font-semibold mb-4">Manage Equipment</h2>
+                <h2 className="text-xl font-semibold mb-4">
+                  {isEditing ? "Edit Equipment" : "Manage Equipment"}
+                </h2>
 
-                {/* Add Equipment Form */}
+                {/* Add/Edit Equipment Form */}
                 <div className="bg-gray-50 p-4 rounded-lg mb-6">
                   <h3 className="font-medium text-gray-700 mb-3">
-                    Add New Equipment
+                    {isEditing ? "Edit Equipment" : "Add New Equipment"}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Name Field */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Equipment Name
+                        Equipment Name*
                       </label>
                       <input
                         type="text"
@@ -232,13 +290,14 @@ const AdminPanel = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                        required
                       />
                     </div>
 
                     {/* Category Field */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Category
+                        Category*
                       </label>
                       <input
                         type="text"
@@ -246,13 +305,14 @@ const AdminPanel = () => {
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                         className="w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                        required
                       />
                     </div>
 
                     {/* Price Field */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Price Per Hour (₹)
+                        Price Per Hour (₹)*
                       </label>
                       <input
                         type="number"
@@ -260,6 +320,7 @@ const AdminPanel = () => {
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         className="w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                        required
                       />
                     </div>
 
@@ -291,21 +352,25 @@ const AdminPanel = () => {
                       />
                     </div>
 
-                    {/* Add Equipment Button */}
-                    <div className="md:col-span-2 flex justify-end">
+                    {/* Form Actions */}
+                    <div className="md:col-span-2 flex justify-end space-x-3">
+                      {isEditing && (
+                        <button
+                          onClick={resetForm}
+                          className="px-6 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 transition"
+                        >
+                          Cancel
+                        </button>
+                      )}
                       <button
-                        onClick={handleAddEquipment}
+                        onClick={
+                          isEditing ? handleUpdateEquipment : handleAddEquipment
+                        }
                         className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
                       >
-                        Add Equipment
+                        {isEditing ? "Update Equipment" : "Add Equipment"}
                       </button>
                     </div>
-
-                    {successMessage && (
-                      <div className="mt-2 text-green-600 font-semibold">
-                        {successMessage}
-                      </div>
-                    )}
                   </div>
                 </div>
 
@@ -339,7 +404,13 @@ const AdminPanel = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             ₹{eq.pricePerHour}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                            <button
+                              onClick={() => handleEditEquipment(eq)}
+                              className="text-blue-600 hover:text-blue-900"
+                            >
+                              Edit
+                            </button>
                             <button
                               onClick={() => handleDeleteEquipment(eq._id)}
                               className="text-red-600 hover:text-red-900"

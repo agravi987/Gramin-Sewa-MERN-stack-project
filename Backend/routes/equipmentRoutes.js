@@ -4,16 +4,16 @@ const {
   addEquipment,
   getAllEquipments,
   getEquipmentById,
+  updateEquipment,
+  deleteEquipment,
 } = require("../controllers/equipmentController");
-const { protect } = require("../middleware/authMiddleware"); // we'll create this shortly
+const { protect } = require("../middleware/authMiddleware");
+const { isAdmin } = require("../middleware/adminMiddleware");
 
-// @route POST /api/equipment
-router.post("/", protect, addEquipment); // Only logged-in user (admin) should ideally add
-
-// @route GET /api/equipment
+router.post("/", protect, isAdmin, addEquipment);
 router.get("/", getAllEquipments);
-
-// @route GET /api/equipment/:id
 router.get("/:id", getEquipmentById);
+router.put("/:id", protect, isAdmin, updateEquipment);
+router.delete("/:id", protect, isAdmin, deleteEquipment);
 
 module.exports = router;

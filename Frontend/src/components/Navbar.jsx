@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="bg-green-700 text-white shadow-lg">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/dashboard" className="flex items-center space-x-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8"

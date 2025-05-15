@@ -42,3 +42,39 @@ exports.getEquipmentById = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+// Update Equipment
+exports.updateEquipment = async (req, res) => {
+  try {
+    const { name, description, category, pricePerHour, imageUrl } = req.body;
+
+    const equipment = await Equipment.findById(req.params.id);
+    if (!equipment) {
+      return res.status(404).json({ message: "Equipment not found" });
+    }
+
+    equipment.name = name || equipment.name;
+    equipment.description = description || equipment.description;
+    equipment.category = category || equipment.category;
+    equipment.pricePerHour = pricePerHour || equipment.pricePerHour;
+    equipment.imageUrl = imageUrl || equipment.imageUrl;
+
+    const updatedEquipment = await equipment.save();
+    res.json(updatedEquipment);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Delete Equipment
+exports.deleteEquipment = async (req, res) => {
+  try {
+    const equipment = await Equipment.findByIdAndDelete(req.params.id);
+    if (!equipment) {
+      return res.status(404).json({ message: "Equipment not found" });
+    }
+    res.json({ message: "Equipment removed successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

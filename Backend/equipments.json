@@ -1,182 +1,122 @@
 [
   {
-    "_id": { "$oid": "6624c604096024183bb9a47e" },
     "name": "John Deere Tractor",
     "description": "Powerful 75HP tractor with advanced farming features",
     "category": "Tractor",
     "pricePerHour": 200,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1614977645540-7abd88ba8e56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1614977645540-7abd88ba8e56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a47f" },
     "name": "Massey Ferguson Tractor",
     "description": "60HP tractor with fuel-efficient engine",
     "category": "Tractor",
     "pricePerHour": 180,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1593462385505-2d5a6f5a5f0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1593462385505-2d5a6f5a5f0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a480" },
     "name": "Combine Harvester",
     "description": "Modern combine harvester for wheat and grain crops",
     "category": "Harvester",
     "pricePerHour": 350,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1605559421013-3a37972921d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1605559421013-3a37972921d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a481" },
     "name": "Rotary Tiller",
     "description": "Heavy-duty tiller for soil preparation",
     "category": "Tiller",
     "pricePerHour": 120,
     "available": true,
-    "imageUrl": "https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a482" },
     "name": "Seed Drill",
     "description": "Precision seed drill for efficient planting",
     "category": "Seeder",
     "pricePerHour": 150,
     "available": true,
-    "imageUrl": "https://images.pexels.com/photos/5699665/pexels-photo-5699665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.pexels.com/photos/5699665/pexels-photo-5699665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a483" },
     "name": "Disc Plough",
     "description": "Heavy-duty plough for tough soil conditions",
     "category": "Plough",
     "pricePerHour": 110,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a484" },
     "name": "Boom Sprayer",
     "description": "300-liter capacity sprayer for pesticides",
     "category": "Sprayer",
     "pricePerHour": 90,
     "available": true,
-    "imageUrl": "https://images.pexels.com/photos/5699663/pexels-photo-5699663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.pexels.com/photos/5699663/pexels-photo-5699663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a485" },
     "name": "Mahindra Tractor",
     "description": "45HP compact tractor for small farms",
     "category": "Tractor",
     "pricePerHour": 160,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1633944094699-ec0e8f7d8e0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1633944094699-ec0e8f7d8e0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a486" },
     "name": "Trailer",
     "description": "2-ton capacity agricultural trailer",
     "category": "Trailer",
     "pricePerHour": 80,
     "available": true,
-    "imageUrl": "https://images.pexels.com/photos/4503271/pexels-photo-4503271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.pexels.com/photos/4503271/pexels-photo-4503271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a487" },
     "name": "Potato Harvester",
     "description": "Specialized harvester for potato crops",
     "category": "Harvester",
     "pricePerHour": 280,
     "available": true,
-    "imageUrl": "https://images.pexels.com/photos/5699664/pexels-photo-5699664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.pexels.com/photos/5699664/pexels-photo-5699664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a488" },
     "name": "Moldboard Plough",
     "description": "Traditional plough for deep tillage",
     "category": "Plough",
     "pricePerHour": 95,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a489" },
     "name": "Tractor Mounted Sprayer",
     "description": "500-liter sprayer with boom extension",
     "category": "Sprayer",
     "pricePerHour": 130,
     "available": true,
-    "imageUrl": "https://images.pexels.com/photos/5699662/pexels-photo-5699662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.pexels.com/photos/5699662/pexels-photo-5699662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a48a" },
     "name": "Mini Tractor",
     "description": "25HP tractor for small farms and orchards",
     "category": "Tractor",
     "pricePerHour": 120,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1633944094699-ec0e8f7d8e0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1633944094699-ec0e8f7d8e0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a48b" },
     "name": "Baler",
     "description": "Hay baler for straw and forage crops",
     "category": "Baler",
     "pricePerHour": 220,
     "available": true,
-    "imageUrl": "https://images.pexels.com/photos/4503272/pexels-photo-4503272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.pexels.com/photos/4503272/pexels-photo-4503272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    "_id": { "$oid": "6624c604096024183bb9a48c" },
     "name": "Cultivator",
     "description": "12-tine cultivator for weed control",
     "category": "Cultivator",
     "pricePerHour": 100,
     "available": true,
-    "imageUrl": "https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    "createdAt": { "$date": "2024-04-22T08:00:00Z" },
-    "updatedAt": { "$date": "2024-04-22T08:00:00Z" },
-    "__v": 0
+    "imageUrl": "https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   }
 ]
